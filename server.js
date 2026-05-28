@@ -10,7 +10,8 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 const allowedOrigins = [
-  "http://localhost:3000", // Development
+  
+  "http://localhost:5174", // Added from bug report"http://localhost:3000", // Development
   "https://razi.iqsoft.in", // Production
 ];
 
@@ -28,6 +29,7 @@ app.use(
     allowedHeaders: "Content-Type,Authorization",
   })
 );
+app.options("*", cors({ origin: allowedOrigins, credentials: true }));
 
 app.use(express.json()); // Allow JSON data parsing
 
