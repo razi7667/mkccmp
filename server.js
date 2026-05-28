@@ -73,8 +73,8 @@ app.get("/api/search", async (req, res) => {
   try {
     const query = req.query.q; // Get search term from frontend
 
-    if (!query) {
-      return res.status(400).json({ error: "Query is required" });
+        if (!query) {
+      return res.json([]);
     }
 
     // Find titles that match the search (case insensitive)
